@@ -69,4 +69,6 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/devops-assessment-api:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/devops-assessment-api:${{ github.sha }}
 
-            echo "Docker image pushed successfully to Docker Hub with tags: latest and ${{ github.sha }}    "
+      - name: Confirm image push
+        run: |
+            echo "Docker image pushed successfully to Docker Hub with tags: latest and ${{ github.sha }}"
