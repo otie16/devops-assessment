@@ -147,13 +147,13 @@ black .
 ### 🔨 Build image
 
 ```bash
-docker build -t <your-username>/devops-assessment-api:local .
+docker build -t otobongedoho18361/devops-assessment-api:local .
 ```
 
 ### ▶️ Run container
 
 ```bash
-docker run -p 8000:8000 <your-username>/devops-assessment-api:local
+docker run -p 8000:8000 otobongedoho18361/devops-assessment-api:local
 ```
 
 ---
