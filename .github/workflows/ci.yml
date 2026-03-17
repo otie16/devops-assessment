@@ -1,6 +1,5 @@
-name: Deploy to backend Docker Hub
+name: CI pipeline for backend image push to Docker Hub
 
-name: CI Pipeline
 
 on:
   push:
