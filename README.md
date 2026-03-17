@@ -238,11 +238,11 @@ http://localhost:8080
 ## 🧠 Architecture Summary
 
 ```
-User → FastAPI → Metrics → Prometheus → Grafana
-                  ↓
-               Docker
-                  ↓
-             Kubernetes
+User → FastAPI → Prometheus → Grafana
+        ↓
+      Docker
+        ↓
+    Kubernetes
 ```
 
 ---
@@ -298,6 +298,27 @@ Separate readiness and health endpoints were used so Kubernetes can make better 
 * Monitoring deployed locally instead of in-cluster
 * Alertmanager not included (optional scope)
 * No HPA due to Minikube constraints
+
+## 🧠 How I approached this solution
+
+This project was approached with a focus on production readiness rather than just functionality.
+
+Key priorities were:
+
+- Observability: ensuring metrics are exposed, scraped, and visualized
+- Automation: enforcing code quality and build steps through CI
+- Reproducibility: making the system easy to run locally and in Kubernetes
+- Simplicity: avoiding unnecessary complexity while covering all required components
+
+The solution was built incrementally:
+
+1. Application with metrics and structured logging
+2. Containerization with Docker
+3. Observability stack with Prometheus and Grafana
+4. CI pipeline with linting, testing, and image build/push
+5. Kubernetes deployment with probes and configuration separation
+
+Trade-offs were made intentionally to keep the solution focused and aligned with the assessment scope.
 
 ---
 ## 📸 Screenshots
