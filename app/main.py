@@ -50,7 +50,7 @@ async def add_metrics_and_logging(request: Request, call_next):
     try:
         response = await call_next(request)
         status_code = response.status_code
-    except Exception as exc:
+    except Exception:
         status_code = 500
         logger.exception(
             "Unhandled exception during request",
@@ -61,7 +61,9 @@ async def add_metrics_and_logging(request: Request, call_next):
             endpoint=path,
             status_code=str(status_code),
         ).inc()
-        REQUEST_LATENCY.labels(method=method, endpoint=path).observe(time.time() - start_time)
+        REQUEST_LATENCY.labels(method=method, endpoint=path).observe(
+            time.time() - start_time
+        )
         return JSONResponse(
             status_code=500,
             content={

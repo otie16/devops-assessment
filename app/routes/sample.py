@@ -20,3 +20,9 @@ def sample_endpoint():
 def error_endpoint():
     logger.warning("Intentional error endpoint called")
     raise HTTPException(status_code=400, detail="Intentional test error")
+
+
+@router.get("/api/v1/crash")
+def crash_endpoint():
+    logger.warning("Intentional crash endpoint called")
+    raise RuntimeError("Intentional server crash for testing")
