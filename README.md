@@ -303,6 +303,9 @@ Separate readiness and health endpoints were used so Kubernetes can make better 
 ## 📸 Screenshots
 
 ### 📊 Grafana Dashboard
+
+Shows request rate, latency, and service health.
+
 ![Grafana Dashboard](screenshots/grafana-dashboard.png)
 
 ---
